@@ -1,0 +1,13 @@
+@use "./abstracts/mixins";
+@use "./abstracts/reset";
+@use "./abstracts/colors";
+@use "./abstracts/animation";
+
+body {
+  position: relative;
+  height: 100vh;
+  //overflow: hidden;
+}
+
+
+

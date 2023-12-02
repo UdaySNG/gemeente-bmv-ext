@@ -1,0 +1,74 @@
+/* Add these styles to your existing stylesheet or create a new one */
+
+.left-section {
+    height: 80rem;
+    width: 50%;
+    margin-top: 3rem; /* Adjust spacing between sections */
+  }
+  
+  .left-section h1 {
+    font-family: sans-serif;
+    font-size: 6rem;
+    padding-left: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .left-section__article {
+    position: relative; /* Add relative positioning to the article */
+    display: flex;
+    margin-left: 6rem;
+    width: 40%;
+    height: 69rem;
+    background-color: #ded7d7;
+  }
+  
+  .left-section__image {
+    justify-content: flex-start;
+    width: 8rem; /* Adjust image size */
+    height: 8rem;
+    padding-top: 1rem;
+  }
+  
+  .left-section p {
+    font-family: sans-serif;
+    padding: 3rem;
+    width: 90%;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0; /* Remove default margin for consistency */
+  
+    /* WebKit scrollbar styling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #b6b0b0 #b6b0b0; /* For Firefox */
+  }
+  
+  /* For WebKit browsers (Chrome, Safari) */
+  .left-section p::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .left-section p::-webkit-scrollbar-thumb {
+    background-color: #b6b0b0;
+  }
+  
+  .left-section p::-webkit-scrollbar-track {
+    background-color: #b6b0b0
+  }
+  
+  .left-section a {
+    position: absolute; /* Add absolute positioning to the link */
+    bottom: 0; /* Align to the bottom */
+    right: 0; /* Align to the right */
+    padding: 1rem; /* Adjust padding as needed */
+    width: auto;
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .left-section a:hover {
+    color: rgb(255, 0, 0);
+  }
+  

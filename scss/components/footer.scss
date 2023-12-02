@@ -1,0 +1,35 @@
+@use "../abstracts/mixins";
+@use "../abstracts/reset";
+@use "../abstracts/colors";
+
+
+/* Add these styles to your existing stylesheet or create a new one */
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+  }
+  
+  .footer__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust as needed */
+  }
+  
+  .footer__item {
+    padding: 1rem;
+    margin-right: 20px; /* Adjust spacing between items */
+    text-align: center; /* Adjust alignment as needed */
+  }
+  
+  .footer__item:last-child {
+    margin-right: 0; /* Remove right margin for the last item */
+  }
+  
+  h4, p, a {
+    margin: 0; /* Remove default margin for consistency */
+  }
+  

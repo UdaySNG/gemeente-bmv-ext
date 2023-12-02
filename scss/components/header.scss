@@ -1,0 +1,73 @@
+@import '../abstracts/mixins'; 
+
+
+.header {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/amsterdam.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 90vh;
+}
+
+.header__buttons-container {
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  display: flex;
+  gap: 10rem;
+  height: 10%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__button {
+  width: auto;
+  color: white;
+  font-family: sans-serif;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none; 
+  position: relative;
+  @include underlineAnimation; 
+}
+
+
+
+.header__logo {
+  padding-top: 1rem;
+  height: 10rem;
+  width: 10rem; 
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.header__title {
+  font-family: sans-serif;
+  position: absolute;
+  color: white;
+  font-size: 10rem;
+  padding-left: 1rem;
+  animation: slideFromLeft 1s ease-in-out; /* Animation duration and easing */
+  top: 60%;
+}
+
+@keyframes slideFromLeft {
+  from {
+    left: -100%; /* Start from outside the left edge of the screen */
+  }
+  to {
+    left: 0%; /* Move to the center of the screen */
+  }
+}
