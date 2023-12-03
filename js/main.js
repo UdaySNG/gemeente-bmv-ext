@@ -12,7 +12,7 @@ class Api {
         return response.json();
       })
       .then((data) => {
-        this.data = data.episodes;
+        this.data = data;
       });
     return this.data;
   }
@@ -92,16 +92,12 @@ class Main {
     this.mainElement = document.createElement("main");
     this.mainElement.classList = "main";
 
-    // Create an instance of LeftSection
-    this.leftSection = new LeftSection("Left Section Title", "Content for the left section.");
+ 
+    this.leftSection = new LeftSection();
   }
 
   render() {
-    // Render the LeftSection
     this.leftSection.render(this.mainElement);
-
-    // You can add more sections or content here as needed
-
     this.placeToRenderMain.appendChild(this.mainElement);
   }
 }
@@ -109,8 +105,8 @@ class Main {
 
 class LeftSection {
   sectionElement;
-
-  constructor(title, content) {
+  data;
+  constructor(title, content, data) {
     this.sectionElement = document.createElement("section");
     this.sectionElement.classList = "left-section";
 
@@ -125,12 +121,13 @@ class LeftSection {
     imageElement.src = "./img/amsterdam-xxx-logo.svg"; // Replace with the actual path to your small image
 
     const contentElement = document.createElement("p");
-    contentElement.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nesciunt repellat voluptatem cum accusantium beatae ut illum quia eveniet, ducimus accusamus inventore, doloribus nam. Fugit fuga obcaecati ullam necessitatibus labore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nesciunt repellat voluptatem cum accusantium beatae ut illum quia eveniet, ducimus accusamus inventore, doloribus nam. Fugit fuga obcaecati ullam necessitatibus labore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nesciunt repellat voluptatem cum accusantium beatae ut illum quia eveniet, ducimus accusamus inventore, doloribus nam. Fugit fuga obcaecati ullam necessitatibus labore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nesciunt repellat voluptatem cum accusantium beatae ut illum quia eveniet, ducimus accusamus inventore, doloribus nam. Fugit fuga obcaecati ullam necessitatibus labore?Lorem ipsum dolor sit amet consectetur adipisicing elit.";
+    contentElement.innerText = "Een sociaal-duurzaam Amsterdam Voor veel mensen is en blijft Amsterdam een zeer aantrekkelijke plek om te wonen en dus blijven we bouwen aan de groei van de stad. Maar Amsterdam bestaat natuurlijk uit méér dan alleen woningen. Daarom bouwen we aan een sociaal-duurzaam Amsterdam: een stad die het welzijn van haar bewoners belangrijk vindt en verbetert, door niet alleen woningen te bouwen maar ook te zorgen voor maatschappelijke voorzieningen, voor huidige bewoners en toekomstige generaties.";
+
 
     // Create a clickable link at the end of the paragraph
     const scrollLinkElement = document.createElement("a");
     scrollLinkElement.href = "#scroll-target"; // Replace with the appropriate target ID
-    scrollLinkElement.innerText = "Scroll down";
+    scrollLinkElement.innerText = "Lees Meer";
 
     contentElement.appendChild(scrollLinkElement);
 
@@ -149,6 +146,7 @@ class LeftSection {
 
 
 
+
 class Footer {
   footerElement;
   listElements = [];
@@ -161,13 +159,13 @@ class Footer {
     this.footerElement = document.createElement("footer");
     this.footerElement.classList = "footer";
 
-    this.addListItem("Section 1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Learn More", "#");
-    this.addListItem("Section 2", "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Explore", "#");
-    this.addListItem("Section 3", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.", "Discover", "#");
-    this.addListItem("Section 4", "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "Contact Us", "#");
+    this.addListItem("Mail", "PMB is bereikbaar op werkdagen tussen 8.30 - 17.30 uur.", "Contact", "#");
+    this.addListItem("Volg het ProjectManagement Bureau", "", "Linkedin", "#", "X", "#");
+    this.addListItem("Over deze site", "", "Colofon", "#", "Proclaimer en Copyright", "#", "Sitemap", "#");
+    this.addListItem("Amsterdam.nl", "Nieuws en publieksinformatie van de gemeente Amsterdam vindt u op onze site", "Amsterdam.nl", "#");
   }
 
-  addListItem(title, content, linkText, linkUrl) {
+  addListItem(title, content, linkText1, linkUrl1, linkText2, linkUrl2, linkText3, linkUrl3) {
     const listItem = document.createElement("li");
     listItem.classList = "footer__item";
 
@@ -177,17 +175,39 @@ class Footer {
     const contentElement = document.createElement("p");
     contentElement.innerText = content;
 
-    const linkElement = document.createElement("a");
-    linkElement.href = linkUrl;
-    linkElement.innerText = linkText;
+    const linkContainer = document.createElement("div"); // Container for the links
+
+    if (linkText1 && linkUrl1) {
+      const linkElement1 = document.createElement("a");
+      linkElement1.href = linkUrl1;
+      linkElement1.innerText = linkText1;
+      linkContainer.appendChild(linkElement1);
+      linkContainer.appendChild(document.createElement("br")); // Add a line break if the first link is present
+    }
+
+    if (linkText2 && linkUrl2) {
+      const linkElement2 = document.createElement("a");
+      linkElement2.href = linkUrl2;
+      linkElement2.innerText = linkText2;
+      linkContainer.appendChild(linkElement2);
+      linkContainer.appendChild(document.createElement("br")); // Add a line break if the second link is present
+    }
+
+    if (linkText3 && linkUrl3) {
+      const linkElement3 = document.createElement("a");
+      linkElement3.href = linkUrl3;
+      linkElement3.innerText = linkText3;
+      linkContainer.appendChild(linkElement3);
+    }
 
     listItem.appendChild(titleElement);
     listItem.appendChild(contentElement);
-    listItem.appendChild(linkElement);
+    listItem.appendChild(linkContainer);
 
     this.listElements.push(listItem);
   }
-
+  
+  
   render() {
     const listContainer = document.createElement("ul");
     listContainer.classList = "footer__list";

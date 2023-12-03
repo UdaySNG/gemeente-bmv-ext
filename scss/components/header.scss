@@ -1,6 +1,5 @@
 @import '../abstracts/mixins'; 
 
-
 .header {
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -10,9 +9,10 @@
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
   width: 100%;
   height: 90vh;
+  background-color: #f0f0f0;
+  @include box-shadowing; 
 }
 
 .header__buttons-container {
@@ -60,7 +60,7 @@
   font-size: 10rem;
   padding-left: 1rem;
   animation: slideFromLeft 1s ease-in-out; /* Animation duration and easing */
-  top: 60%;
+  top: 70%;
 }
 
 @keyframes slideFromLeft {

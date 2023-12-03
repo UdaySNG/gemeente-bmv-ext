@@ -7,6 +7,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: sans-serif;
 }
 
 body {
@@ -53,6 +54,10 @@ body {
   height: 100vh;
 }
 
+.main {
+  height: 90vh;
+}
+
 /* _animations.scss */
 .header {
   position: relative;
@@ -62,9 +67,12 @@ body {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
   width: 100%;
   height: 90vh;
+  background-color: #f0f0f0;
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .header__buttons-container {
@@ -126,7 +134,7 @@ body {
   font-size: 10rem;
   padding-left: 1rem;
   animation: slideFromLeft 1s ease-in-out; /* Animation duration and easing */
-  top: 60%;
+  top: 70%;
 }
 
 @keyframes slideFromLeft {
@@ -138,6 +146,7 @@ body {
   }
 }
 /* Add these styles to your existing stylesheet or create a new one */
+/* _animations.scss */
 .left-section {
   height: 80rem;
   width: 50%;
@@ -152,12 +161,16 @@ body {
 }
 
 .left-section__article {
-  position: relative; /* Add relative positioning to the article */
+  position: relative;
   display: flex;
-  margin-left: 6rem;
-  width: 40%;
-  height: 69rem;
-  background-color: #ded7d7;
+  margin-top: 7rem;
+  margin-left: 5rem;
+  width: 45%;
+  height: 60rem;
+  background-color: rgba(252, 241, 241, 0.799), 255, 255;
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .left-section__image {
@@ -169,16 +182,16 @@ body {
 
 .left-section p {
   font-family: sans-serif;
-  padding: 3rem;
-  width: 90%;
-  height: 5rem;
+  padding-right: 2rem;
+  padding-top: 5rem;
+  width: 80%;
+  height: 3rem;
+  font-size: 2.3rem;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  margin: 0; /* Remove default margin for consistency */
-  /* WebKit scrollbar styling */
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #b6b0b0 #b6b0b0; /* For Firefox */
+  margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #b6b0b0 #b6b0b0;
 }
 
 /* For WebKit browsers (Chrome, Safari) */
@@ -198,20 +211,21 @@ body {
   position: absolute; /* Add absolute positioning to the link */
   bottom: 0; /* Align to the bottom */
   right: 0; /* Align to the right */
-  padding: 1rem; /* Adjust padding as needed */
+  padding: 2.5rem; /* Adjust padding as needed */
   width: auto;
-  color: rgb(0, 0, 0);
+  color: rgb(56, 56, 56);
   text-decoration: underline;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .left-section a:hover {
-  color: rgb(255, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
-/* Add these styles to your existing stylesheet or create a new one */
 .footer {
-  background-color: #333;
+  background-color: #605f5f;
   color: white;
   padding: 20px;
 }
@@ -221,169 +235,134 @@ body {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Adjust as needed */
+  width: 98%;
+  justify-content: space-between;
 }
 
-.footer__item {
-  padding: 1rem;
-  margin-right: 20px; /* Adjust spacing between items */
-  text-align: center; /* Adjust alignment as needed */
+.footer__item a {
+  position: relative;
+  top: 0.3rem;
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+.footer__item a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Adjust the underline thickness as needed */
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+.footer__item a:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  opacity: 1;
 }
 
 .footer__item:last-child {
-  margin-right: 0; /* Remove right margin for the last item */
+  width: 30rem;
 }
 
-h4, p, a {
-  margin: 0; /* Remove default margin for consistency */
+h4,
+p,
+a {
+  margin: 0;
 }
 
 @media screen and (max-width: 62.5rem) {
   body {
-    height: 100vh;
+    height: 90vh;
+    width: 100vw;
     position: relative;
+  }
+  .header {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/amsterdam.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 90vh;
+  }
+  .header__buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    padding-right: 1rem;
+    font-size: 1.7rem;
+  }
+  .header__button {
+    width: auto;
+    color: white;
+    font-family: sans-serif;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    justify-content: center;
+    align-items: center;
   }
   .header__title {
     font-family: sans-serif;
     position: absolute;
     color: white;
-    font-size: 5rem;
-    padding-left: 5rem;
+    width: 100%;
+    font-size: 4.5rem;
     animation: slideFromLeft 1s ease-in-out; /* Animation duration and easing */
     top: 60%;
-  }
-  .title__collection {
-    display: flex;
-    justify-content: center;
-    height: 4rem;
-    font-size: 2rem;
-    position: relative;
-    z-index: 1;
-  }
-  .fa-spotify {
-    font-size: 2.3rem;
+    text-align: center;
   }
   .main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 98%;
-    height: 140vh;
-    background: white;
-    border-radius: 1.7%;
-    z-index: 0;
     display: flex;
-    justify-content: center; /* Add this line */
-    align-items: center; /* Add this line */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
   }
-  .left__section {
+  .left-section {
+    width: 100%;
+    height: 80rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 105%;
-    width: 50%;
-    padding-top: 15rem;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: -15rem;
   }
-  .collection__article {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 3rem;
+  .left-section h1 {
+    font-size: 5rem;
+    text-align: center;
   }
-  .collection__cards {
-    display: grid;
+  .left-section__article {
+    width: 100%;
+    margin: 0 auto;
+    height: 50rem;
+  }
+  .left-section p {
+    font-size: 1.75rem;
+    width: 50rem;
+  }
+  .footer {
+    margin-top: auto;
+  }
+  .footer__list {
+    list-style: none;
+    gap: 4rem;
     flex-wrap: wrap;
-    align-items: center;
-    width: 169%;
-    height: 0rem;
-  }
-  .cards__episodes {
-    transition: filter 0.5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; /* add this line */
-  }
-  .cards__episodes__images {
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  .cards__episodes__images:hover {
-    filter: brightness(100%);
-  }
-  .date {
-    position: absolute;
-  }
-  .title {
-    position: absolute;
-  }
-  .date-right {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 2.5rem;
-    top: 8%;
-  }
-  .title-right {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 2.5rem;
-  }
-  .right__section {
-    display: flex;
-    position: absolute;
-  }
-  .episode__container {
-    width: 150%;
-    height: 80rem;
-  }
-  .episode__banner {
-    align-items: center;
-    justify-content: center;
-    width: 133.3%;
-    height: 20rem;
-    background: gray;
-    object-fit: contain;
-    overflow: scroll;
-  }
-  .episode__display {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 20rem;
-  }
-  .episode__paragraph {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 120%;
-    height: 17%;
-    font-size: 1rem;
-    overflow: scroll;
-    gap: 3rem;
-  }
-  .source__button {
-    cursor: pointer;
-    font-size: 1.9rem;
-    border: none;
-    position: absolute;
-    left: -47%;
-    top: 55%;
-  }
-  .audio__tag {
-    position: absolute;
-    bottom: 51%;
-    padding-left: 1rem;
-    width: 28rem;
-  }
-  footer {
-    position: absolute;
-    left: 0;
-    font-size: 1.8rem;
-    text-align: center;
-    bottom: -16rem;
   }
 }
 
